@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Manager | Create task</title>
+</head>
+<body>
+<h1>Create your task:</h1>
+<form action="#" th:action="@{/task/create}" th:object="${task}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Description: <input type="text" th:field="*{description}" /></p>
+    <p>Date: <input type="date" th:field="*{date}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
