@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Manager</title>
+</head>
+<body>
+<h1>Tasks:</h1>
+<br/>
+<table>
+    <tr th:each="t: ${taskList}">
+        <td th:text="${t.name}" />
+        <td th:text="${t.description}" />
+        <td th:text="${t.date}" />
+    </tr>
+</table>
+</body>
+</html>

@@ -2,9 +2,16 @@ package pl.pk99.taskmanager;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "Tasks")
 public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name, description;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
