@@ -3,14 +3,30 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Task Manager | Create task</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 <body>
 <h1>Create your task:</h1>
 <form action="#" th:action="@{/task/create}" th:object="${task}" method="post">
-    <p>Name: <input type="text" th:field="*{name}" /></p>
-    <p>Description: <input type="text" th:field="*{description}" /></p>
-    <p>Date: <input type="date" th:field="*{date}" /></p>
+    <p>Name:
+        <input type="text" th:field="*{name}" />
+        <span class="validationError"
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">Name error</span>
+    </p>
+    <p>Description:
+        <input type="text" th:field="*{description}" />
+    </p>
+    <p>Date:
+        <input type="date" th:field="*{date}" />
+        <span class="validationError"
+              th:if="${#fields.hasErrors('date')}"
+              th:errors="*{date}">Date error</span>
+    </p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
+    <h2> <a th:href="@{/}">Home</a></h2>
+    <h2> <a th:href="@{/task}">Task list</a></h2>
 </form>
 </body>
 </html>

@@ -3,10 +3,12 @@ package pl.pk99.taskmanager.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import pl.pk99.taskmanager.Task;
 import pl.pk99.taskmanager.data.TaskRepository;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +48,10 @@ public class TaskController {
     }
 
     @PostMapping("/create")
-    public String postTask (@ModelAttribute Task task) {
+    public String postTask (@Valid @ModelAttribute Task task, Errors errors) {
+        if(errors.hasErrors()) {
+            return "createTask";
+        }
         taskRepository.save(task);
         return "redirect:/task/" + taskRepository.count();
     }
