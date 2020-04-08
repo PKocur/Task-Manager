@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
     <title>Task Manager</title>
 </head>
 <body>
 <h1>Welcome to Task Manager!</h1>
-<h2> <a th:href="@{/task}">Task list</a></h2>
-<h2> <a th:href="@{/task/create}">Add task</a></h2>
+    <div sec:authorize="isAuthenticated()">
+        <h2>Hello <span sec:authentication="name">name</span>!</h2>
+        <h2> <a th:href="@{/task}">Task list</a></h2>
+        <h2> <a th:href="@{/task/create}">Add task</a></h2>
+        <h2> <a th:href="@{/logout}">Logout</a></h2>
+    </div>
+    <div sec:authorize="isAnonymous()">
+        <h2> <a th:href="@{/login}">Log in!</a></h2>
+        <h3>or</h3>
+        <h2> <a th:href="@{/register}">Register now!</a></h2>
+    </div>
 </body>
 </html>

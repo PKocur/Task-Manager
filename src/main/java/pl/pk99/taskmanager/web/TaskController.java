@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import pl.pk99.taskmanager.Task;
+import pl.pk99.taskmanager.model.Task;
 import pl.pk99.taskmanager.data.TaskRepository;
 
 import javax.validation.Valid;

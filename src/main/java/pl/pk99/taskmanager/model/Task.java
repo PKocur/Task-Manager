@@ -1,4 +1,4 @@
-package pl.pk99.taskmanager;
+package pl.pk99.taskmanager.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
